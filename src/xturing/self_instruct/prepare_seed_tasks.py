@@ -23,7 +23,7 @@ def instruction_input_suggest(
     questions = []
     answers = []
     for text in texts:
-        prompt = f"""Given  a document. Suggest {num_samples_per_chunk} questions that could be asked related to the document. Generate a comprehensive and informative answer (but no more than 250 words) for each question.
+        prompt = f"""Given  a document. Suggest {num_samples_per_chunk} questions that could be asked related to the document. Generate a comprehensive and informative answer (but no more than 250 words) for each question. Don't start the question with the word 'question' or the answer with the word 'answer'. Structure the questions so they would sound like instructions.
             Document: {text}
             """
 
@@ -65,8 +65,8 @@ def prepare_seed_tasks(
                         "id": f"seed_task_{i}",
                         "instruction": instruction,
                         "instances": [{"input": "", "output": outputs[i]}],
-                        #"input": "", 
-                        #"output": outputs[I],
+						"input": "", 
+						"output": outputs[i],
                     }
                 )
                 + "\n"
