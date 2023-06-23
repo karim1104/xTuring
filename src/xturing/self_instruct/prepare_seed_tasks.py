@@ -62,11 +62,11 @@ def prepare_seed_tasks(
             f.write(
                 json.dumps(
                     {
-                        #"id": f"seed_task_{i}",
+                        "id": f"seed_task_{i}",
                         "instruction": instruction,
-                        #"instances": [{"input": "", "output": outputs[i]}],
-                        "input": "", 
-                        "output": outputs[I],
+                        "instances": [{"input": "", "output": outputs[i]}],
+                        #"input": "", 
+                        #"output": outputs[I],
                     }
                 )
                 + "\n"
